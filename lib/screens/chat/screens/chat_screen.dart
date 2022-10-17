@@ -8,11 +8,21 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomNavigationBarChatScreen(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: Constant.verticalPadding),
-        child: ListViewOfChat(),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Stack(
+        children: const [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: Constant.verticalPadding),
+            child: ListViewOfChat(),
+          ),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: BottomNavigationBarChatScreen(),
+          ),
+        ],
       ),
     );
   }

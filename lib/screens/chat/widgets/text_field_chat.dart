@@ -1,6 +1,9 @@
 import 'package:assigment/constant/color_scheme.dart';
 import 'package:assigment/constant/constant.dart';
 import 'package:assigment/constant/fonts_utils.dart';
+import 'package:assigment/controllers/chat_cubit.dart';
+import 'package:assigment/core/navigation.dart';
+import 'package:assigment/screens/nav_home.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldChatScreen extends StatelessWidget {
@@ -19,9 +22,10 @@ class TextFieldChatScreen extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            const Expanded(
+            Expanded(
               child: TextField(
-                decoration: InputDecoration(
+                controller: ChatCubit.get(context).textEditingController,
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Type something ....',
                     hintStyle: TextStyle(
@@ -33,7 +37,12 @@ class TextFieldChatScreen extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            Image.asset('${Constant.iconPath}Voice.png'),
+            GestureDetector(
+                onTap: () {
+                  CustomFunctions.pushScreen(
+                      widget: const HomeNavigationbar(), context: context);
+                },
+                child: Image.asset('${Constant.iconPath}Voice.png')),
           ],
         ),
       ),

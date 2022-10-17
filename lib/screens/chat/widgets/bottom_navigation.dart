@@ -1,4 +1,5 @@
 import 'package:assigment/constant/constant.dart';
+import 'package:assigment/controllers/chat_cubit.dart';
 import 'package:assigment/core/navigation.dart';
 import 'package:assigment/screens/chat/widgets/text_field_chat.dart';
 import 'package:assigment/screens/nav_home.dart';
@@ -9,7 +10,8 @@ class BottomNavigationBarChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: Colors.white,
       height: 80,
       width: double.infinity,
       child: Padding(
@@ -22,8 +24,7 @@ class BottomNavigationBarChatScreen extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  CustomFunctions.pushScreen(
-                      widget: const HomeNavigationbar(), context: context);
+                  ChatCubit.get(context).submitNewMessage();
                 },
                 child: Image.asset('${Constant.iconPath}Send.png')),
           ],

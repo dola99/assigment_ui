@@ -1,20 +1,19 @@
 import 'package:assigment/constant/color_scheme.dart';
 import 'package:assigment/constant/constant.dart';
 import 'package:assigment/constant/fonts_utils.dart';
+import 'package:assigment/controllers/chat_cubit.dart';
 import 'package:assigment/models/chat/chat_screen.dart';
 import 'package:assigment/screens/chat/widgets/selection_container.dart';
 import 'package:assigment/widget/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class CahtBotMessage extends StatelessWidget {
-  final String messageText;
-  final bool isSelection;
-  final List<SelectionItem>? selectionList;
-  const CahtBotMessage(
-      {super.key,
-      required this.messageText,
-      this.isSelection = false,
-      this.selectionList});
+class ChatBotMessage extends StatelessWidget {
+  final ChatModel chatModel;
+
+  const ChatBotMessage({
+    super.key,
+    required this.chatModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class CahtBotMessage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                   child: CustomText(
-                      text: messageText,
+                      text: chatModel.message,
                       color: AppColors.textBlackColor,
                       size: 12,
                       fontFamily: FontUtils.poppinsFont),
@@ -53,17 +52,25 @@ class CahtBotMessage extends StatelessWidget {
               ),
             ],
           ),
-          isSelection
+          chatModel.isSelectionItem
               ? Column(
                   children: [
                     ListView.builder(
                         shrinkWrap: true,
-                        itemCount: selectionList!.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: chatModel.selectionList!.length,
                         itemBuilder: ((context, index) {
-                          return SelectionContainerChat(
-                              isSelected: selectionList![index].isSelected,
-                              titleOfSelection:
-                                  selectionList![index].selectionTitle);
+                          return GestureDetector(
+                            onTap: () {
+                              ChatCubit.get(context)
+                                  .checkBoxChangeStatus(chatModel.id, index);
+                            },
+                            child: SelectionContainerChat(
+                                isSelected:
+                                    chatModel.selectionList![index].isSelected,
+                                titleOfSelection: chatModel
+                                    .selectionList![index].selectionTitle),
+                          );
                         })),
                     const SizedBox(
                       height: 8,

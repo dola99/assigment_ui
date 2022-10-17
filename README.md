@@ -1,16 +1,25 @@
-# assigment
 
-A new Flutter project.
+# Project Title
 
-## Getting Started
+A currencie App
 
-This project is a starting point for a Flutter application.
+## Environment Variables
 
-A few resources to get you started if this is your first Flutter project:
+To run this project, you will need to add the following environment variables to your .env file
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+`API_KEY`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+you can find api_key in mail
+
+
+
+## build project
+
+this Project with MVC Arch with bloc StateManagement, Observer Design pattern
+
+## image loader
+
+NetworkImage use NetworkImage Package Because it helps me to cache images and Run Images without cors Configuration with the server
+## database
+
+Hive NoSql best performance You can have from any local database and it's NoSql
