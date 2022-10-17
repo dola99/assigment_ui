@@ -1,4 +1,4 @@
-import 'package:assigment/controllers/chat_status.dart';
+import 'package:assigment/controllers/chat/chat_status.dart';
 import 'package:assigment/models/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

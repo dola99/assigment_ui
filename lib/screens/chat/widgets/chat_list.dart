@@ -1,5 +1,5 @@
-import 'package:assigment/controllers/chat_cubit.dart';
-import 'package:assigment/controllers/chat_status.dart';
+import 'package:assigment/controllers/chat/chat_cubit.dart';
+import 'package:assigment/controllers/chat/chat_status.dart';
 import 'package:assigment/models/chat/chat_screen.dart';
 import 'package:assigment/screens/chat/widgets/chat_bot_message.dart';
 import 'package:assigment/screens/chat/widgets/user_message.dart';

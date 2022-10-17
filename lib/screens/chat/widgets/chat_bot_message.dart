@@ -1,7 +1,7 @@
 import 'package:assigment/constant/color_scheme.dart';
 import 'package:assigment/constant/constant.dart';
 import 'package:assigment/constant/fonts_utils.dart';
-import 'package:assigment/controllers/chat_cubit.dart';
+import 'package:assigment/controllers/chat/chat_cubit.dart';
 import 'package:assigment/models/chat/chat_screen.dart';
 import 'package:assigment/screens/chat/widgets/selection_container.dart';
 import 'package:assigment/widget/custom_text.dart';

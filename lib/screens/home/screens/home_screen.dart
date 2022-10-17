@@ -10,21 +10,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: const [
-            AppBarhomeScreen(),
-            RecommandedExpertedContainer(),
-            SizedBox(
-              height: 10,
+      body: Stack(
+        children: [
+          SafeArea(
+            child: Column(
+              children: const [
+                AppBarhomeScreen(),
+                RecommandedExpertedContainer(),
+                SizedBox(
+                  height: 10,
+                ),
+                OnlineExpertContainer(),
+                SizedBox(
+                  height: 100,
+                ),
+              ],
             ),
-            OnlineExpertContainer(),
-            SizedBox(
-              height: 100,
-            ),
-            BottomSheetCategory()
-          ],
-        ),
+          ),
+          DraggableScrollableSheet(
+            initialChildSize: 0.30,
+            minChildSize: 0.15,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return SingleChildScrollView(
+                controller: scrollController,
+                child: BottomSheetCategory(),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:assigment/constant/constant.dart';
-import 'package:assigment/controllers/chat_cubit.dart';
+import 'package:assigment/controllers/chat/chat_cubit.dart';
 import 'package:assigment/core/navigation.dart';
 import 'package:assigment/screens/chat/widgets/text_field_chat.dart';
 import 'package:assigment/screens/nav_home.dart';
